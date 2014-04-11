@@ -8,20 +8,20 @@
 #include <string.h>
 #include "Token.h"
 #include "BinaryTree.h"
-LineList::void setLineNumber(int lineNumber) // setters
+void LineList::setLineNumber(int lineNumber) // setters
 {
 	this->lineNumber = lineNumber;
 }
-LineList::void setNext(LineList next)
+void LineList::setNext(LineList next)
 {
 	this->next = &next;
 }
 
-LineList::int getLineNumber() // getters
+int LineList::getLineNumber() // getters
 {
 	return lineNumber;
 }
-LineList::LineList* getNext()
+LineList* LineList::getNext()
 {
 	return next;
 }
@@ -37,23 +37,23 @@ LineList::~LineList() // destructor
 	next = NULL;
 }
 
-TreeNode::void setLeft(treeNode *leftNode) // setters
+void TreeNode::setLeft(TreeNode *leftNode) // setters
 {
 	left = leftNode;
 }
-TreeNode::void setRight(treeNode *rightNode)
+void TreeNode::setRight(TreeNode *rightNode)
 {
 	right = rightNode;
 }
-	treeNode* getRight() // getters
+TreeNode* TreeNode::getRight() // getters
 {
 	return right;
 }
-TreeNode::treeNode* getLeft()
+TreeNode* TreeNode::getLeft()
 {
 	return left;
 }
-TreeNode::treeNode(Token *id, int lineNum) // constructor
+TreeNode::TreeNode(Token *id, int lineNum) // constructor
 {
 	LineList *newNum;
 	newNum = new LineList(lineNum);
@@ -62,7 +62,7 @@ TreeNode::treeNode(Token *id, int lineNum) // constructor
 	right = NULL;
 	this->id = id;
 }
-TreeNode::~treeNode() // destructor
+TreeNode::~TreeNode() // destructor
 {
 	delete left;
 	left = NULL;
@@ -73,7 +73,7 @@ TreeNode::~treeNode() // destructor
 	delete id;
 	id = NULL;
 }
-TreeNode::void insertNode(Token *add, int lineNum)
+void TreeNode::insertNode(Token *add, int lineNum)
 {
 	if(add->getTokenString().compare(id->getTokenString()) == 0) // if string is the same
 	{
@@ -92,8 +92,8 @@ TreeNode::void insertNode(Token *add, int lineNum)
 		{
 			if(left == NULL) // add node if left is empty
 			{
-				treeNode *newNode;
-				newNode = new treeNode(add, lineNum);
+				TreeNode *newNode;
+				newNode = new TreeNode(add, lineNum);
 				left = newNode;
 			}
 			else // recursively call insertNode
@@ -105,8 +105,8 @@ TreeNode::void insertNode(Token *add, int lineNum)
 		{
 			if(right == NULL)
 			{
-				treeNode *newNode;
-				newNode = new treeNode(add, lineNum);
+				TreeNode *newNode;
+				newNode = new TreeNode(add, lineNum);
 				right = newNode;
 			}
 			else
