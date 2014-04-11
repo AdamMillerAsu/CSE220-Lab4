@@ -7,6 +7,7 @@
 
 #include <string.h>
 #include "Token.h"
+#include <stdio.h>
 struct LineList
 {
 private:
@@ -20,7 +21,7 @@ public:
 	}
 	void setNext(LineList next)
 	{
-		this->next = next;
+		this->next = &next;
 	}
 	//setter functions
 	int getLineNumber()
@@ -29,7 +30,7 @@ public:
 	}
 	LineList getNext()
 	{
-		return next;
+		return *next;
 	}
 
 	LineList(int line) // constructor
@@ -43,7 +44,7 @@ public:
 		delete next;
 		next = NULL;
 	}
-}
+};
 struct treeNode
 {
 private:
@@ -56,13 +57,13 @@ public:
 	{
 		if(add->getTokenString().compare(id->getTokenString()) == 0)
 		{
-			LineList newNum = new LineList(num);
+			LineList *newNum = new LineList(lineNum);
 			LineList *temp = line;
-			while(temp->getNext() != NULL)
+			while(&temp->getNext() != NULL)
 			{
-				temp = temp->getNext();
+				temp = &temp->getNext();
 			}
-			temp->setNext(newNum);
+			temp->setNext(*newNum);
 		}
 		else
 		{
@@ -72,4 +73,4 @@ public:
 			}
 		}
 	}
-}
+};
