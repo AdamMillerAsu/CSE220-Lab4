@@ -30,6 +30,7 @@ private:
     }
     literal;
     string tokenString;
+    //What variables and methods am I missing to implement a binary tree.
     
 public:
     Token();
