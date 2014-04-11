@@ -25,20 +25,20 @@ public:
 	~LineList();
 };
 
-struct treeNode
+struct TreeNode
 {
 private:
 	struct Token *id;
 	struct LineList *line;
-	struct treeNode *left;
-	struct treeNode *right;
+	struct TreeNode *left;
+	struct TreeNode *right;
 public:
-	void setLeft(treeNode *leftNode);
-	void setRight(treeNode *rightNode);
-	treeNode* getRight();
-	treeNode* getLeft();
-	treeNode(Token *id, int lineNum);
-	~treeNode();
+	void setLeft(TreeNode *leftNode);
+	void setRight(TreeNode *rightNode);
+	TreeNode* getRight();
+	TreeNode* getLeft();
+	TreeNode(Token *id, int lineNum);
+	~TreeNode();
 	void insertNode(Token *add, int lineNum);
 };
 #endif
