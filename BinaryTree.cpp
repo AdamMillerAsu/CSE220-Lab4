@@ -34,7 +34,7 @@ public:
 
 	LineList(int line) // constructor
 	{
-		lineNumber = line;
+		setLineNumber(line);
 		next = NULL;
 	}
 	
@@ -74,8 +74,9 @@ public:
 
 	treeNode(Token *id, int lineNum) // constructor
 	{
-		LineList newNum = new LineList(lineNum);
-		line = &newNum;
+		LineList *newNum;
+		newNum = new LineList(lineNum);
+		line = newNum;
 		left = NULL;
 		right = NULL;
 		this->id = id;
@@ -93,11 +94,12 @@ public:
 		id = NULL;
 	}
 
-	void insertNode(Token add, int lineNum)
+	void insertNode(Token *add, int lineNum)
 	{
-		if(add.getTokenString().compare(id->getTokenString()) == 0) // if string is the same
+		if(add->getTokenString().compare(id->getTokenString()) == 0) // if string is the same
 		{
-			LineList *newNum = new LineList(num);
+			LineList *newNum; 
+			newNum = new LineList(lineNum);
 			LineList *temp = line;
 			while(temp->getNext() != NULL) // add line number
 			{
@@ -107,11 +109,12 @@ public:
 		}
 		else
 		{
-			if(add.getTokenString().compare(id->getTokenString()) < 0) // if string is less than
+			if(add->getTokenString().compare(id->getTokenString()) < 0) // if string is less than
 			{
 				if(left == NULL) // add node if left is empty
 				{
-					treeNode *newNode = new treeNode(&add, lineNum);
+					treeNode *newNode;
+					newNode = new treeNode(add, lineNum);
 					left = newNode;
 				}
 				else // recursively call insertNode
@@ -123,7 +126,8 @@ public:
 			{
 				if(right == NULL)
 				{
-					treeNode *newNode = treeNode(&add, lineNum);
+					treeNode *newNode;
+					newNode = new treeNode(add, lineNum);
 					right = newNode;
 				}
 				else
