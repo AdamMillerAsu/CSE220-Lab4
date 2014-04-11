@@ -7,6 +7,7 @@
 
 #include "Print.h"
 #include "Token.h"
+#include "BinaryTree.h"
 
 const char* const SYMBOL_STRINGS[] =
 {
@@ -87,4 +88,8 @@ void Print::printToken(Token *token)
             break;
     }
     printLine(line);
+}
+
+void Print::printBinaryTree(TreeNode *node)
+{
 }
