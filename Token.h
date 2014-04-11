@@ -30,7 +30,6 @@ private:
     }
     literal;
     string tokenString;
-    //What variables and methods am I missing to implement a binary tree.
     
 public:
     Token();
@@ -47,8 +46,6 @@ public:
     string getStringLiteral();
     void setTokenString(string s);
     string getTokenString();
-    void setNextToken(Token *newToken);
-    Token* getNextToken();
 };
 
 #endif /* defined(__Lab4__Token__) */
