@@ -11,6 +11,7 @@
 #include <iostream>
 #include "common.h"
 #include "Token.h"
+#include "BinaryTree.h"
 
 using namespace std;
 
@@ -29,6 +30,7 @@ public:
     
     void printLine(char line[]);
     void printToken(Token *token);
+	void printBinaryTree(TreeNode *node);
 };
 
 #endif /* defined(__Lab4__Print__) */
