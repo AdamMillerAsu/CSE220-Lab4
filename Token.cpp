@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include "Token.h"
+#include <cstdlib>
 
 Token::Token()
 {
