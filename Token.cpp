@@ -5,15 +5,14 @@
 //  Created by Bryce Holton.
 //
 
+#include <stdio.h>
 #include "Token.h"
 
 Token::Token()
 {
-    //What code do I need here to initialize everything.
 }
 Token::~Token()
 {
-    //What code do I need here to free memory
 }
 void Token::setCode(TokenCode newCode)
 {
@@ -64,4 +63,11 @@ string Token::getTokenString()
 {
     return this->tokenString;
 }
-//What methods am I missing to implement a binary tree.
+void Token::setLineNumber(int num)
+{
+	lineNumber = num;
+}
+int Token::getLineNumber()
+{
+	return lineNumber;
+}
