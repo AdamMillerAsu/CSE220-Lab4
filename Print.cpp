@@ -5,6 +5,7 @@
 //  Created by Bryce Holton.
 //	Added on by Daniel Wong and Adam Miller
 
+#include <iostream>
 #include "Print.h"
 #include "Token.h"
 #include "BinaryTree.h"
