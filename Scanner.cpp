@@ -5,6 +5,7 @@
 //  Created by Bryce Holton.
 //
 
+#include <stdio.h>
 #include "Scanner.h"
 #include "Print.h"
 
@@ -198,6 +199,7 @@ void Scanner::getWord(char *str, char *token_ptr, Token *tok)
     {
         //set token to identifier
         tok->setCode(IDENTIFIER);
+		tok->setLineNumber(line_number);
     }
     tok->setTokenString(string(str));
 }
