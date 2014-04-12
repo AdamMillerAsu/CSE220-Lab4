@@ -88,11 +88,13 @@ void TreeNode::insertNode(Token *add, int lineNum)
 		LineList *newNum; 
 		newNum = new LineList(lineNum);
 		LineList *temp = line;
-		while(temp->getNext() != NULL) // add line number
-		{
-			temp = temp->getNext();
-		}
-		temp->setNext(*newNum);
+	//	while(temp->getNext() != NULL) // add line number
+	//	{
+	//		temp = temp->getNext();
+	//	}
+	//	temp->setNext(*newNum);
+	
+	//We were having issues getting the linked lists to work.
 	}
 	else
 	{
