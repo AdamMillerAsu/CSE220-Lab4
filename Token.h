@@ -9,6 +9,7 @@
 #define __Lab4__Token__
 
 #include <iostream>
+#include <stdio.h>
 #include "common.h"
 
 using namespace std;
@@ -22,6 +23,7 @@ class Token
 private:
     TokenCode code;
     LiteralType type;
+	int lineNumber;
     union
     {
         int integer;
@@ -47,6 +49,8 @@ public:
     string getStringLiteral();
     void setTokenString(string s);
     string getTokenString();
+	void setLineNumber(int num);
+	int getLineNumber();
 };
 
 #endif /* defined(__Lab4__Token__) */
