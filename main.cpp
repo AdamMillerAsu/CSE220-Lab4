@@ -3,13 +3,14 @@
 //  Lab4
 //
 //  Created by Bryce Holton.
-//
+//	Added on by Daniel Wong and Adam Miller
 
 #include <iostream>
 #include "common.h"
 #include "Print.h"
 #include "Scanner.h"
 #include "Token.h"
+#include "BinaryTree.h"
 
 FILE *init_lister(const char *name, char source_file_name[], char dte[]);
 void quit_scanner(FILE *src_file, Token *list);
@@ -23,6 +24,7 @@ int main(int argc, const char * argv[])
      prints every token and then deletes every token.
      *****************************************/
     Token *token = NULL;
+	TreeNode *root = NULL; // root of Binary Tree
     char source_name[MAX_FILE_NAME_LENGTH];
     char date[DATE_STRING_LENGTH];
     FILE *source_file = init_lister(argv[1], source_name, date);
@@ -33,13 +35,33 @@ int main(int argc, const char * argv[])
     {
         token = scanner.getToken();
         print.printToken(token);
-        if (token->getCode() != PERIOD && token->getCode() != END_OF_FILE)
+		if(token->getCode() == IDENTIFIER && root == NULL)
+		{
+			TreeNode *rootNode;
+			rootNode = new TreeNode(token,token->getLineNumber());
+			root = rootNode;
+		}
+		else
+		{
+			if(token->getCode() == IDENTIFIER)
+			{
+				TreeNode *newNode;
+				newNode = new TreeNode(token,token->getLineNumber());
+				root->insertNode(token,token->getLineNumber());
+			}
+		}
+        if (token->getCode() != PERIOD && token->getCode() != END_OF_FILE
+			&& token->getCode() != IDENTIFIER)
         {
             delete token;
         }
     }
     while (token->getCode() != PERIOD && token->getCode() != END_OF_FILE);
     
+	cout << "\nCross Reference Information\nIdentifier\t\tLine Numbers\n";
+	cout << "-----------		------------\n";
+	print.printBinaryTree(root);
+
     delete token;
     fclose(source_file);
     return 0;
