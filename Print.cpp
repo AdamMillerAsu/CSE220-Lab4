@@ -3,7 +3,7 @@
 //  Lab4
 //
 //  Created by Bryce Holton.
-//
+//	Added on by Daniel Wong and Adam Miller
 
 #include "Print.h"
 #include "Token.h"
@@ -92,4 +92,31 @@ void Print::printToken(Token *token)
 
 void Print::printBinaryTree(TreeNode *node)
 {
+	if(node == NULL)
+	{
+		cout << "No identifiers found.";
+	}
+	else
+	{
+		if(node->getLeft() != NULL)
+		{
+			printBinaryTree(node->getLeft());
+		}
+
+		string printId = node->getId()->getTokenString();
+		LineList *temp = node->getLineList();
+		int printLine = temp->getLineNumber();
+		std::cout << node->getId()->getTokenString() << "\t\t" << printLine;
+		while(temp->getNext() != NULL)
+		{
+			temp = temp->getNext();
+			printLine = temp->getLineNumber();
+			std::cout << "\t" << printLine;
+		}
+		cout << endl;
+		if(node->getRight() != NULL)
+		{
+			printBinaryTree(node->getRight());
+		}
+	}
 }
