@@ -8,6 +8,7 @@
 #ifndef Lab4_Scanner_h
 #define Lab4_Scanner_h
 
+#include <stdio.h>
 #include "common.h"
 #include "Token.h"
 #include "Print.h"
