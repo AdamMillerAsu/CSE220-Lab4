@@ -10,6 +10,8 @@
 #include "Token.h"
 #include "BinaryTree.h"
 
+using namespace std;
+
 const char* const SYMBOL_STRINGS[] =
 {
     "<no token>", "<IDENTIFIER>", "<NUMBER>", "<STRING>",
@@ -107,7 +109,7 @@ void Print::printBinaryTree(TreeNode *node)
 		string printId = node->getId()->getTokenString();
 		LineList *temp = node->getLineList();
 		int printLine = temp->getLineNumber();
-		std::cout << node->getId()->getTokenString() << "\t\t" << printLine;
+		cout << node->getId()->getTokenString() << "\t\t" << printLine;
 		while(temp->getNext() != NULL)
 		{
 			temp = temp->getNext();
