@@ -30,7 +30,7 @@ public:
     
     void printLine(char line[]);
     void printToken(Token *token);
-	void printBinaryTree(TreeNode *node);
+    void printBinaryTree(TreeNode *node);
 };
 
 #endif /* defined(__Lab4__Print__) */
