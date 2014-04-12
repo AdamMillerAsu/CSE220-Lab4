@@ -53,6 +53,14 @@ TreeNode* TreeNode::getLeft()
 {
 	return left;
 }
+Token* TreeNode:: getId()
+{
+	return id;
+}
+LineList* TreeNode:: getLineList()
+{
+	return line;
+}
 TreeNode::TreeNode(Token *id, int lineNum) // constructor
 {
 	LineList *newNum;
